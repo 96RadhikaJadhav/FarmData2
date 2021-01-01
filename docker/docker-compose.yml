@@ -28,7 +28,6 @@ services:
     environment:
       XDEBUG_CONFIG: remote_host=172.17.0.1
 
-
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: phpmyadmin
@@ -41,3 +40,12 @@ services:
      - /sessions
     links:
      - 'db'
+
+  theiaide:
+    image: theiaide/theia:1.7.0
+    container_name: theiaide
+    user: node
+    volumes: 
+     - ..:/home/FarmData2
+    ports:
+     - 3000:3000
